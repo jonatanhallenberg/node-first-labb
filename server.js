@@ -1,13 +1,16 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import memberRouter from './routes/memberRouter.js';
+import authMiddleware from './middlewares/authMiddleware.js';
+//Vi anropar POST /member
 
 dotenv.config({ path: `config/.env.${process.env.NODE_ENV}` });
 
 const app = express()
 const port = 3030
 
-app.use(express.json())
+app.use(express.json());
+
 app.use('/member', memberRouter);
 
 app.get('/', (req, res) => {
