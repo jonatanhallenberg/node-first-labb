@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import memberRouter from './routes/memberRouter.js';
-import authMiddleware from './middlewares/authMiddleware.js';
+import memberRouter from './routes/memberRouter';
+import authMiddleware from './middlewares/authMiddleware';
 //Vi anropar POST /member
 
 dotenv.config({ path: `config/.env.${process.env.NODE_ENV}` });

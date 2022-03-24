@@ -1,14 +1,14 @@
 import express from 'express';
 import pg from 'pg';
 const { Pool } = pg;
-import { getMembers } from '../db/member.js';
-import authMiddleware from '../middlewares/authMiddleware.js';
+import { getMembers } from '../db/member';
+import authMiddleware from '../middlewares/authMiddleware';
 
 const router = express.Router();
 
 router.use(authMiddleware);
 
-router.post('/', (req, res) => {
+router.post('/', (req: any, res) => {
     console.log('What is req.foo in the router?', req.foo);
     console.log(req.body);
     res.send('Funkar');

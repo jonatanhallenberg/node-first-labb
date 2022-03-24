@@ -1,4 +1,4 @@
-import { query } from './index.js';
+import { query } from './';
 
 export const getMembers = async () => {
     const response = await query('SELECT * FROM members');
