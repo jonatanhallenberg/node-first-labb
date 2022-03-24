@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import memberRouter from './routes/memberRouter';
 import authMiddleware from './middlewares/authMiddleware';
+import memberRouter from './routes/memberRouter';
+import passport from 'passport';
+import initPassport from './passport';
 //Vi anropar POST /member
 
 dotenv.config({ path: `config/.env.${process.env.NODE_ENV}` });
@@ -10,6 +12,9 @@ const app = express()
 const port = 3030
 
 app.use(express.json());
+
+initPassport();
+app.use(passport.authenticate('basic'));
 
 app.use('/member', memberRouter);
 

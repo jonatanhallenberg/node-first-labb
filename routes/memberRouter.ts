@@ -6,7 +6,7 @@ import authMiddleware from '../middlewares/authMiddleware';
 
 const router = express.Router();
 
-router.use(authMiddleware);
+//router.use(authMiddleware);
 
 router.post('/', (req: any, res) => {
     console.log('What is req.foo in the router?', req.foo);
